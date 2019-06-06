@@ -1,8 +1,6 @@
 # HtmlToAnsi
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/html_to_ansi`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Generate ANSI text with escape sequences to emulate basic HTML formatting.
 
 ## Installation
 
@@ -22,9 +20,58 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Paragraphs
 
-## Development
+Code:
+
+```ruby
+HtmlToAnsi.convert(%(
+    <p>First paragraph</p>
+    <p>Second paragraph</p>
+))
+```
+
+Output:
+
+> First paragraph
+>
+> Second paragraph
+
+### Ordered List
+
+Code:
+
+```ruby
+HtmlToAnsi.convert(%(
+    <ul>
+        <li>One</li>
+        <li>Two</li>
+    </ul>
+))
+```
+
+Output:
+
+> 1. One
+> 2. Two
+
+### Unordered List
+
+Code:
+
+```ruby
+HtmlToAnsi.convert(%(
+    <ul>
+        <li>One</li>
+        <li>Two</li>
+    </ul>
+))
+```
+
+Output:
+
+> * One
+> * Two
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
