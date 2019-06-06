@@ -19,4 +19,10 @@ RSpec.describe HtmlToAnsi do
     ansi = HtmlToAnsi.convert '<p>hello</p>'
     expect(HtmlToAnsi.unescape(ansi)).to include("\nhello\n")
   end
+
+  it 'wraps at width' do
+    ansi = HtmlToAnsi.convert('<p><b>one</b> two</p>', width: 3)
+    plain = HtmlToAnsi.unescape(ansi)
+    expect(plain).to include("one\ntwo")
+  end
 end
